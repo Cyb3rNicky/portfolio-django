@@ -1,0 +1,49 @@
+{% extends 'layout.html' %} {% block content%} {% load static %}
+
+<header class="row bg-black">
+  <div class="col-md-4">
+    <img src="{% static 'portfolio/perfil.png'  %}" alt="" />
+  </div>
+
+  <div class="col-md-8 my-auto">
+    <h1><strong> Nicolás Del Valle </strong></h1>
+    <h3>Full-Stack Developer</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt aliquam, asperiores quam dignissimos, pariatur
+      magni aspernatur quaerat dolore quia ea nihil optio soluta officiis. Placeat, tempora nam nostrum aut sit dolore
+      quod error. Magnam nemo itaque asperiores dolorem, hic minima ipsum similique? Doloremque facilis ipsa corrupti,
+      eveniet placeat error animi molestiae assumenda inventore minus fugit quod aliquam quis provident aperiam id nam
+      magni autem alias incidunt molestias rem ipsum adipisci. Amet quisquam eveniet, rem ex mollitia ea molestias nemo
+      enim nesciunt odit reprehenderit, veritatis neque. Dignissimos incidunt impedit fugiat explicabo magni! Itaque
+      distinctio autem aspernatur libero voluptas doloremque. Consectetur, temporibus.
+    </p>
+    <a href="{% static 'portfolio/CV.pdf' %}" class="btn btn-outline-info btn-lg rounded-0 my-3 " target="_blank">
+      Curriculum Vitae
+    </a>
+  </div>
+</header>
+
+<div class="row my-4 text-center">
+  <h3>Portfolio</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, cum?</p>
+
+  {% for project in projects %}
+
+  <div class="col-md-4 p-4">
+    <div class="card bg-black card-project">
+      <img src="{{project.image.url}}" alt="" class="card-img-top" />
+
+      <div class="card-body text-light">
+        <h2>{{project.title}}</h2>
+        <p>{{project.description}}</p>
+
+        {% if project.url %}
+        <a href="{{project.url}}" class="btn btn-light rounded-50 btn-sm" target="_blank">Go to Link</a>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% endfor %} {% endblock %}
+</div>
